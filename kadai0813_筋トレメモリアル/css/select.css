@@ -1,0 +1,127 @@
+
+.wrap {
+    animation: fadein 3s forwards;
+  }
+  
+  @keyframes fadein {
+    0% {opacity: 0}
+    100% {opacity: 1}
+  }
+
+.input {
+    position: relative;
+    text-align: center;
+}
+
+.background {
+    background-color: #DCDCDC;
+}
+
+.title {
+    position: absolute;
+    color: red;
+    text-align: center;
+    font-family: "M PLUS 1p";
+    font-size: 3rem;
+    background-color: #FFFF99;
+    top: 10%;
+    left: 35%;
+    margin: 200px 0;
+    font-weight: bold;
+    color: red;
+}
+
+.head_text {
+    position: absolute;
+    text-align: center;
+    font-family: "M PLUS 1p";
+    background-color: #FFFF99;
+    top: 10%;
+    left: 30%;
+    padding: 0.5em 1em;
+    margin: 150px 0 0 0;
+    font-weight: bold;
+    color: #6091d3;
+}
+
+.save {
+    margin: 100px 500px 100px 0;
+    width: 200px;
+    font-family: "M PLUS 1p";
+    display: inline-block;
+    padding: 1.5em 2em;
+    align-items: center;
+    text-decoration: none;
+    color: red;
+    border: solid 2px red;
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.save:hover {
+    background: #FFD700;
+    color: white;
+}
+
+.clear {
+    font-family: "M PLUS 1p";
+    width: 200px;
+    display: inline-block;
+    padding: 1.5em 2em;
+    align-items: center;
+    text-decoration: none;
+    color: red;
+    border: solid 2px red;
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.clear:hover {
+    background: blue;
+    color: white;
+}
+
+p {
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 30px 0 0;
+}
+
+.textarea {
+    width: 50px;
+    text-align: center;
+}
+
+.hitokoto {
+    margin-top: 60px;
+}
+
+.textarea2 {
+    width: 300px;
+    height: 100px;
+    text-align: justify;
+    text-align: start;
+}
+
+.finish {
+    font-family: "M PLUS 1p";
+    display: inline-block;
+    padding: 1.5em 2em;
+    align-items: center;
+    text-decoration: none;
+    color: red;
+    border: solid 2px red;
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.finish:hover {
+    background: #00FF99;
+    color: white;
+}

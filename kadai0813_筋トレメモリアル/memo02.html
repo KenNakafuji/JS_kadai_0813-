@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>筋トレメモ</title>
+  <link rel="stylesheet" href="css/select.css">
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+</head>
+
+<body>
+
+  <main class="wrap">
+
+    <div class="input">
+      <img src="images/select/selectmaccho.png" width="1400px" height="550px" alt="">
+      <h1 class="title">君の頑張りを教えてください</h1>
+      <h2 class="head_text">筋トレの成果を記録セヨッ！！！</h2>
+
+      <!-- 記録の入力① -->
+      <section class="background">
+        <div class="select">
+
+          <p>①部位はどこ？</p>
+          <p><select name="" id="select1"></select></p>
+
+          <p>②メニュー名は？</p>
+          <p><select name="" id="select2"></select></p>
+
+          <p>③重さは？</p>
+          <p><input type="text" placeholder="重さ" id="input1" class="textarea">kg</p>
+
+          <p>④回数とセット数は？</p>
+          <p><input type="text" placeholder="回数" id="input2" class="textarea">回</p>
+          <p><input type="text" placeholder="回数" id="input3" class="textarea">セット</p>
+
+        </div>
+
+        <div class="select">
+
+          <p>①部位はどこ？</p>
+          <p><select name="" id="select_2-1"></select></p>
+
+          <p>②メニュー名は？</p>
+          <p><select name="" id="select_2-2"></select></p>
+
+          <p>③重さは？</p>
+          <p><input type="text" placeholder="重さ" id="input_2-1" class="textarea">kg</p>
+
+          <p>④回数とセット数は？</p>
+          <p><input type="text" placeholder="回数" id="input_2-2" class="textarea">回</p>
+          <p><input type="text" placeholder="回数" id="input_2-3" class="textarea">セット</p>
+
+        </div>
+
+        <div class="select">
+
+          <p>①部位はどこ？</p>
+          <p><select name="" id="select_3-1"></select></p>
+
+          <p>②メニュー名は？</p>
+          <p><select name="" id="select_3-2"></select></p>
+
+          <p>③重さは？</p>
+          <p><input type="text" placeholder="重さ" id="input_3-1" class="textarea">kg</p>
+
+          <p>④回数とセット数は？</p>
+          <p><input type="text" placeholder="回数" id="input_3-2" class="textarea">回</p>
+          <p><input type="text" placeholder="回数" id="input_3-3" class="textarea">セット</p>
+
+        </div>
+
+        <!-- 文章での振り返り -->
+
+        <div class="hitokoto">
+          <p>筋トレ一言メモ</p>
+          <p><input type="text" placeholder="例：今日も1日頑張った" id="input4" class="textarea2" rows="10" cols="60"></p>
+        </div>
+
+        <ul class="save1">
+          <li id="save" class="save">Save</li>
+          <li id="clear" class="clear">Clear</li>
+        </ul>
+
+        <p class="finish" id="a">前回の自分に勝てた</p>
+    </div>
+    </section>
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    // 配列による定義 
+
+    const list01 = ['-', '脚', '腕', '背中', '胸'];
+
+    const array1 = [];
+
+    for (let i = 0; i < list01.length; i++) {
+      array1.push('<option>' + list01[i] + '</option>');
+    }
+
+    const list02 = ['レッグカール', 'レッグエクステンション', 'バーベルスクワット', 'ダンベルランジ', ];
+
+    const array2 = [];
+
+    for (let i = 0; i < list02.length; i++) {
+      array2.push('<option>' + list02[i] + '</option>');
+    }
+
+    const list03 = ['サイドレイズ', 'ダンベルカール', 'バーベルカール', 'リアレイズ', ];
+
+    const array3 = [];
+
+    for (let i = 0; i < list03.length; i++) {
+      array3.push('<option>' + list03[i] + '</option>');
+    }
+
+    const list04 = ['デットリフト', 'ベントオーバーロー', 'ラットプルダウン', 'チンニング', ];
+
+    const array4 = [];
+
+    for (let i = 0; i < list04.length; i++) {
+      array4.push('<option>' + list04[i] + '</option>');
+    }
+
+    const list05 = ['ベンチプレス', 'チェストプレス', 'ダンベルフライ', 'ダンベルプレス', ];
+
+    const array5 = [];
+
+    for (let i = 0; i < list05.length; i++) {
+      array5.push('<option>' + list05[i] + '</option>');
+    }
+
+    // HTMLの設定
+    $('#select1').html(array1);
+    $('#select_2-1').html(array1);
+    $('#select_3-1').html(array1);
+
+    // 【セレクトを変えるためのクリックイベント】
+
+    // クリックイベント①（選択した時に何を選択したか取ってくる）
+    $("#select1").change(function () {
+      var parts = $(this).val();
+
+      //条件分岐・表示処理
+      if (parts === "脚") {
+        $('#select2').html(array2);
+
+      } else if (parts === "腕") {
+        $('#select2').html(array3);
+
+      } else if (parts === "背中") {
+        $('#select2').html(array4);
+
+      } else if (parts === "胸") {
+        $('#select2').html(array5);
+
+      }
+    });
+
+    // クリックイベント②
+    $("#select_2-1").change(function () {
+      var parts = $(this).val();
+
+      //条件分岐・表示処理
+      if (parts === "脚") {
+        $('#select_2-2').html(array2);
+
+      } else if (parts === "腕") {
+        $('#select_2-2').html(array3);
+
+      } else if (parts === "背中") {
+        $('#select_2-2').html(array4);
+
+      } else if (parts === "胸") {
+        $('#select_2-2').html(array5);
+
+      }
+    });
+
+    // クリックイベント③ 
+    $("#select_3-1").change(function () {
+      var parts = $(this).val();
+
+      //条件分岐・表示処理
+      if (parts === "脚") {
+        $('#select_3-2').html(array2);
+
+      } else if (parts === "腕") {
+        $('#select_3-2').html(array3);
+
+      } else if (parts === "背中") {
+        $('#select_3-2').html(array4);
+
+      } else if (parts === "胸") {
+        $('#select_3-2').html(array5);
+
+      }
+    });
+
+    // 【Saveクリックイベント】
+    // Save クリックイベント①
+
+    $('#save').on('click', function () {
+      const data = {
+        select1: $('#select1').val(),
+        select2: $('#select2').val(),
+        Input1: $('#input1').val(),
+        Input2: $('#input2').val(),
+        Input3: $('#input3').val(),
+        Input4: $('#input4').val(),
+
+      };
+      const jsonData = JSON.stringify(data);
+      localStorage.setItem('memo', jsonData);
+    });
+
+    // Save クリックイベント②
+    $('#save').on('click', function () {
+      const data = {
+        select1: $('#select_2-1').val(),
+        select2: $('#select_2-2').val(),
+        Input1: $('#input_2-1').val(),
+        Input2: $('#input_2-2').val(),
+        Input3: $('#input_2-3').val(),
+
+      };
+      const jsonData = JSON.stringify(data);
+      localStorage.setItem('memo2', jsonData);
+    });
+
+    // Save クリックイベント③
+    $('#save').on('click', function () {
+      const data = {
+        select1: $('#select_3-1').val(),
+        select2: $('#select_3-2').val(),
+        Input1: $('#input_3-1').val(),
+        Input2: $('#input_3-2').val(),
+        Input3: $('#input_3-3').val(),
+
+      };
+      const jsonData = JSON.stringify(data);
+      localStorage.setItem('memo3', jsonData);
+    });
+
+
+    // 【clearクリックイベント】
+
+    //clear クリックイベント ①
+    $('#clear').on('click', function () {
+      localStorage.removeItem('memo');
+      $('#select1').val("");
+      $('#select2').val("");
+      $('#input1').val("");
+      $('#input2').val("");
+      $('#input3').val("");
+      $('#input4').val("");
+
+    });
+
+    // clear クリックイベント ②
+    $('#clear').on('click', function () {
+      localStorage.removeItem('memo2');
+      $('#select_2-1').val("");
+      $('#select_2-2').val("");
+      $('#input_2-1').val("");
+      $('#input_2-2').val("");
+      $('#input_2-3').val("");
+
+    });
+
+    // clear クリックイベント ③
+    $('#clear').on('click', function () {
+      localStorage.removeItem('memo3');
+      $('#select_3-1').val("");
+      $('#select_3-2').val("");
+      $('#input_3-1').val("");
+      $('#input_3-2').val("");
+      $('#input_3-3').val("");
+
+    });
+
+    //【リロード時の取得表示】
+
+    //リロード時の取得表示① 
+    if (localStorage.getItem('memo')) {
+      const jsonText = localStorage.getItem('memo');
+      const text = JSON.parse(jsonText);
+
+      if (text.select1 === "脚") {
+        $('#select2').html(array2);
+
+      } else if (text.select1 === "腕") {
+        $('#select2').html(array3);
+
+      } else if (text.select1 === "背中") {
+        $('#select2').html(array4);
+
+      } else if (text.select1 === "胸") {
+        $('#select2').html(array5);
+      }
+
+      $('#select1').val(text.select1);
+      $('#select2').val(text.select2);
+      $('#input1').val(text.Input1);
+      $('#input2').val(text.Input2);
+      $('#input3').val(text.Input3);
+      $('#input4').val(text.Input4);
+
+      console.log(text);
+    }
+
+    //リロード時の取得表示②
+    if (localStorage.getItem('memo2')) {
+      const jsonText = localStorage.getItem('memo2');
+      const text = JSON.parse(jsonText);
+
+      if (text.select1 === "脚") {
+        $('#select_2-2').html(array2);
+
+      } else if (text.select1 === "腕") {
+        $('#select_2-2').html(array3);
+
+      } else if (text.select1 === "背中") {
+        $('#select_2-2').html(array4);
+
+      } else if (text.select1 === "胸") {
+        $('#select_2-2').html(array5);
+      }
+
+      $('#select_2-1').val(text.select1);
+      $('#select_2-2').val(text.select2);
+      $('#input_2-1').val(text.Input1);
+      $('#input_2-2').val(text.Input2);
+      $('#input_2-3').val(text.Input3);
+
+      console.log(text);
+    }
+
+    //リロード時の取得表示③
+    if (localStorage.getItem('memo3')) {
+      const jsonText = localStorage.getItem('memo3');
+      const text = JSON.parse(jsonText);
+
+      if (text.select1 === "脚") {
+        $('#select_3-2').html(array2);
+
+      } else if (text.select1 === "腕") {
+        $('#select_3-2').html(array3);
+
+      } else if (text.select1 === "背中") {
+        $('#select_3-2').html(array4);
+
+      } else if (text.select1 === "胸") {
+        $('#select_3-2').html(array5);
+      }
+
+      $('#select_3-1').val(text.select1);
+      $('#select_3-2').val(text.select2);
+      $('#input_3-1').val(text.Input1);
+      $('#input_3-2').val(text.Input2);
+      $('#input_3-3').val(text.Input3);
+
+      console.log(text);
+    }
+
+    var a = [];
+    a[0] = "<a href='finish1.html'>前回の自分に勝てた</a>";
+    a[1] = "<a href='finish2.html'>前回の自分に勝てた</a>";
+    var x;
+    x = Math.floor(Math.random() * 2);
+    $('#a').html(a[x]);
+  </script>
+
+</body>
+
+</html>
